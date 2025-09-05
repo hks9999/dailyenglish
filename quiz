@@ -13,8 +13,8 @@ quiz = [
     ("내일부터 영어 공부할 거야.", "I will study English starting tomorrow."),
     ("내일 이 시간에 영어 공부하고 있을 거야.", "I will be studying English at this time tomorrow."),
     ("다음 주까지 영어 공부 다 끝낼 거야.", "I will have studied English by next week."),
-    ("다음 달까지 계속 영어 공부하고 있었을 거야.", "I will have been studying English until next month.")
-    ("언제 처음 한국에 왔어요?","When did you first come to Korea?")
+    ("다음 달까지 계속 영어 공부하고 있었을 거야.", "I will have been studying English until next month."),
+    ("언제 처음 한국에 왔어요?","When did you first come to Korea?"),
     ("한국에 얼마나 머무를 생각이야?","How long do you plan to stay in Korea?")
 ]
 
