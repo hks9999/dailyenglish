@@ -14,8 +14,9 @@ quiz = [
     ("내일 이 시간에 영어 공부하고 있을 거야.", "I will be studying English at this time tomorrow."),
     ("다음 주까지 영어 공부 다 끝낼 거야.", "I will have studied English by next week."),
     ("다음 달까지 계속 영어 공부하고 있었을 거야.", "I will have been studying English until next month.")
+    ("언제 처음 한국에 왔어요?","When did you first come to Korea?")
+    ("한국에 얼마나 머무를 생각이야?","How long do you plan to stay in Korea?")
 ]
-
 
 def run_quiz():
     print("🧠 영어 12시제 퀴즈에 오신 것을 환영합니다!")
@@ -37,7 +38,6 @@ def run_quiz():
             else:
                 print("❌ 오답입니다. 다시 시도해보세요.\n")
                 print(answer)
-
     print("🎉 모든 문제를 맞혔습니다! 수고하셨습니다!")
 
 if __name__ == "__main__":
