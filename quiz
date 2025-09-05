@@ -1,0 +1,44 @@
+# 영어 12시제 퀴즈 프로그램
+
+# 각 시제별 문제와 정답 리스트
+quiz = [
+    ("나는 영어를 자주 공부해.", "I study English regularly."),
+    ("나 지금 영어 공부 중이야.", "I am studying English right now."),
+    ("나 전에 영어 공부한 적 있어.", "I have studied English before."),
+    ("요즘 계속 영어 공부하고 있어.", "I have been studying English lately."),
+    ("나 어제 영어 공부했어.", "I studied English yesterday."),
+    ("그때 영어 공부 중이었어.", "I was studying English at that time."),
+    ("시험 보기 전에 영어 공부했었어.", "I had studied English before the exam."),
+    ("그때까지 한참 영어 공부하고 있었어.", "I had been studying English for a while by then."),
+    ("내일부터 영어 공부할 거야.", "I will study English starting tomorrow."),
+    ("내일 이 시간에 영어 공부하고 있을 거야.", "I will be studying English at this time tomorrow."),
+    ("다음 주까지 영어 공부 다 끝낼 거야.", "I will have studied English by next week."),
+    ("다음 달까지 계속 영어 공부하고 있었을 거야.", "I will have been studying English until next month.")
+]
+
+
+def run_quiz():
+    print("🧠 영어 12시제 퀴즈에 오신 것을 환영합니다!")
+    print("문제를 한글로 보고, 정확한 영어 문장을 입력하세요.")
+    print("정답을 맞혀야 다음 문제로 넘어갑니다.\n")
+
+    for i, (question, answer) in enumerate(quiz, 1):
+        while True:
+            print(f"문제 {i}: {question}")
+            user_input = input("👉 영어로 입력하세요: ").strip()
+
+            # 대소문자 무시, 마침표도 무시 가능하도록 단순 비교
+            normalized_input = user_input.lower().rstrip(".")
+            normalized_answer = answer.lower().rstrip(".")
+
+            if normalized_input == normalized_answer:
+                print("✅ 정답입니다!\n")
+                break
+            else:
+                print("❌ 오답입니다. 다시 시도해보세요.\n")
+                print(answer)
+
+    print("🎉 모든 문제를 맞혔습니다! 수고하셨습니다!")
+
+if __name__ == "__main__":
+    run_quiz()
