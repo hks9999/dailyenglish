@@ -21,7 +21,15 @@ quiz = [
     ("감정적으로 안정되고 싶다면, 매일 좋은 생각을 선택하세요.","If you want to be emotionally stable, choose good thoughts every day."),
     ("당신에게 필요한 건 연습이에요.","practice is what you need."),
     ("다른 방법은 없습니다.","There's no other way."),
-    ("지름길도 없습니다.","There's no shortcut.")
+    ("지름길도 없습니다.","There's no shortcut."),
+    ("두려운일을 하세요.","Do what scares you."),
+    ("두려움을 극복하는 방법을 알고 싶은신가요?","Do you want to know how to overcome your fears?"),
+    ("하려던 일을 두려운 채로 그냥 하세요.","Just do it scared."),
+    ("말하거나 행동하기에 가장 두려워하는 것이 무엇인가요.","What is the thing that you are most afraid to say or do?"),
+    ("그 말과 행동을 오늘 바로 해보세요.","I challenge you to do it today."),
+    ("그것이 당신의 인생을 최대한 즐기며 사는 방법이에요.","This is how you live your life to the fullest."),
+    ("당신의 마음 안에 진실하게 느껴지는게 있다면, 이제 밖으러 꺼내보세요.","If you have something that feels true to your heart, let it out."),
+    ("두렵다는 느낌을 그 일을 하지 말아야 할 신호로 받아들이면 안됩니다.","Being scared should not be the sign to stop."),
 ]
 
 def run_quiz():
@@ -42,8 +50,9 @@ def run_quiz():
                 break
             else:
                 print("❌ 오답입니다. 다시 시도해보세요.\n")
-                print("입력:"+user_input)
                 print("정답:"+answer)
+                print("입력:"+user_input)
+                print()
     print("🎉 모든 문제를 맞혔습니다! 수고하셨습니다!")
 
 if __name__ == "__main__":
