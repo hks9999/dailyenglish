@@ -38,7 +38,15 @@ quiz = [
     ("기회가 찾아오지 않으면 문을 만들어라.","If opportunity doesn't knock, bulild a door"),
     ("기다리지 마라. 완벽한 타이밍은 없다.","Don't wait. The time will never be just right."),
     ("크게 꿈을 꾸고, 실패를 두려워 하지 말라.","Dream big and dare to fail"),
-    ("지금 있는 곳에서 시작하라. 가진 것을 사용하라. 당신이 할 수 있는 것을 하라","Start where you are. Use what you have. Do what you can")
+    ("지금 있는 곳에서 시작하라. 가진 것을 사용하라. 당신이 할 수 있는 것을 하라","Start where you are. Use what you have. Do what you can"),
+    ("열정없이 세계적으로 위대한 일을 이룬 성취는 없다.","Nothing great in the world has ever been accomplished without passion."),
+    ("에디슨은 많은 것을 발명해 왔다.","Edison has invented many things"),
+    ("많은 것들이 에디슨에 의해 발명되었다.","Many things have been invented by Edison."),
+    ("누군가 내 가방을 훔쳤어.","Someone stole my bag"),
+    ("내 가방이 도둑맞았어.","My bag was stolen."),
+    ("소포가 어제 배송되었어.","The package was delivered yesterday."),
+    ("일이 끝났어.","The work has been finished."),
+    ("핸드폰이 충전 중이야.","The phone is being charged."),
 ]
 
 def run_quiz():
