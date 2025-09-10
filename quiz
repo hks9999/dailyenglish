@@ -1,8 +1,8 @@
 quiz = [
-    ("나는 영어를 자주 공부해.", "I study English regularly."),
+    ("나는 영어를 정기적으로 공부해.", "I study English regularly."),
     ("나 지금 영어 공부 중이야.", "I am studying English right now."),
     ("나 전에 영어 공부한 적 있어.", "I have studied English before."),
-    ("요즘 계속 영어 공부하고 있어.", "I have been studying English lately."),
+    ("최근에 계속 영어 공부하고 있어.", "I have been studying English lately."),
     ("나 어제 영어 공부했어.", "I studied English yesterday."),
     ("그때 영어 공부 중이었어.", "I was studying English at that time."),
     ("시험 보기 전에 영어 공부했었어.", "I had studied English before the exam."),
