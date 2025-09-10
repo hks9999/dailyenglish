@@ -1,4 +1,6 @@
 quiz = [
+    ("행복의 비밀은 더 많은 것을 찾는 데 있지 않고, 더 적은 것을 즐길 수 있는 능력을 기르는 데 있다.","The secret of happiness, you see, is not found in seeking more, but in developing the capacity to enjoy less.")
+    ("단순함은 최고의 정교함이다.", "Simplicity is the ultimate sophistication."),
     ("나는 영어를 정기적으로 공부해.", "I study English regularly."),
     ("나 지금 영어 공부 중이야.", "I am studying English right now."),
     ("나 전에 영어 공부한 적 있어.", "I have studied English before."),
