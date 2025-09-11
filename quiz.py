@@ -6,7 +6,7 @@ quiz = [
     ("나 어제 영어 공부했어.", "I studied English yesterday."),
     ("그때 영어 공부 중이었어.", "I was studying English at that time."),
     ("시험 보기 전에 영어 공부했었어.", "I had studied English before the exam."),
-    ("그때까지 한참 영어 공부하고 있었어.", "I had been studying English for a while by then."),
+    ("2020년에 캐나다로 이사했을 때, 이미 한동안 영어 공부를 하고 있었다.", "When I moved to Canada in 2020, I had been studying English for a while by then."),
     ("내일부터 영어 공부할 거야.", "I will study English starting tomorrow."),
     ("내일 이 시간에 영어 공부하고 있을 거야.", "I will be studying English at this time tomorrow."),
     ("다음 주까지 영어 공부 다 끝낼 거야.", "I will have studied English by next week."),
