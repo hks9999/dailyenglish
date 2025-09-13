@@ -16,7 +16,7 @@ quiz = [
     ("누군가 내 가방을 훔쳤어.","Someone stole my bag"),
     ("내 가방이 도둑맞았어.","My bag was stolen."),
     ("소포가 어제 배송되었어.","The package was delivered yesterday."),
-    ("일이 끝났어.","The work has been finished."),
+    ("일이 끝났어.(현재완료 수동태(지금 막 끝냈어..)","The work has been finished."),
     ("핸드폰이 충전 중이야.","The phone is being charged."),
     ("지금 아니면 기회가 없어.","it's now or never"),
     ("나에게 원하는게 뭐야?","What do you want from me"),
@@ -67,6 +67,31 @@ quiz = [
 
 ]
 
+def mark_incorrect_parts(user_input, correct_answer):
+    # 마침표, 쉼표, 물음표 제거 + 소문자 변환
+    import re
+    def clean_text(text):
+        return re.sub(r"[.,?!]", "", text).lower()
+
+    user_words = clean_text(user_input).split()
+    answer_words = clean_text(correct_answer).split()
+
+    marked = []
+    max_len = max(len(user_words), len(answer_words))
+    for i in range(max_len):
+        if i < len(user_words) and i < len(answer_words):
+            if user_words[i] == answer_words[i]:
+                marked.append(user_words[i])
+            else:
+                marked.append(user_words[i] + "❌")
+        elif i < len(user_words):
+            marked.append(user_words[i] + "❌")
+        else:
+            # 사용자가 입력하지 않은 단어는 표시하지 않음
+            pass
+
+    return ' '.join(marked)
+
 def run_quiz():
     print("문제를 한글로 보고, 정확한 영어 문장을 입력하세요.")
     print("정답을 맞혀야 다음 문제로 넘어갑니다.\n")
@@ -76,7 +101,7 @@ def run_quiz():
             print(f"문제 {i}: {question}")
             user_input = input("👉 영어로 입력하세요: ").strip()
 
-            # 대소문자 무시, 마침표도 무시 가능하도록 단순 비교
+            # 단순 비교용 문자열 (마침표/쉼표 제거, 소문자)
             normalized_input = user_input.lower().replace(",", "").replace(".", "").replace("?", "")
             normalized_answer = answer.lower().replace(",", "").replace(".", "").replace("?", "")
 
@@ -85,9 +110,10 @@ def run_quiz():
                 break
             else:
                 print("❌ 오답입니다. 다시 시도해보세요.\n")
-                print("정답:"+answer)
-                print("입력:"+user_input)
+                print("정답: " + answer)
+                print("입력: " + mark_incorrect_parts(user_input, answer))  # 틀린 부분 표시
                 print()
+
     print("🎉 모든 문제를 맞혔습니다! 수고하셨습니다!")
 
 if __name__ == "__main__":
