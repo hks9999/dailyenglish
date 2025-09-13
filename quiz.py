@@ -1,3 +1,7 @@
+import os
+import re
+import time
+
 quiz = [
     ("나는 영어를 정기적으로 공부해.", "I study English regularly."),
     ("나 지금 영어 공부 중이야.", "I am studying English right now."),
@@ -57,19 +61,19 @@ quiz = [
     ("그건 서비스에요,","It's on the house."),    
     ("자신이 세상을 바꿀 수 있다고 생각할 만큼 미친 사람들이 바로 세상을 바꾸는 사람들입니다.","The ones who are crazy enough to think they can change the world, are the ones that do."),    
     ("인생은 폭풍이 지나기를 기다리는 것이 아니라, 빗속에서 춤추는 법을 배우는 것이다.","Life isn't about waiting for the storm to pass. it's about learning to dance in the rain"),
-    ("천천히 가도 괜찮다. 멈추지 않는 한","It does not matter how slowly you go as long as yo do not stop"),
+    ("천천히 가도 괜찮다. 멈추지 않는 한","It does not matter how slowly you go as long as you do not stop"),
     ("미래를 예측하는 가장 좋은 방법은 스스로 만드는 것이다.","The best way to predict the future is to create it."),
-    ("기회가 찾아오지 않으면 문을 만들어라.","If opportunity doesn't knock, bulild a door"),
+    ("기회가 찾아오지 않으면 문을 만들어라.","If opportunity doesn't knock, build a door"),
     ("기다리지 마라. 완벽한 타이밍은 없다.","Don't wait. The time will never be just right."),
     ("크게 꿈을 꾸고, 실패를 두려워 하지 말라.","Dream big and dare to fail"),
     ("지금 있는 곳에서 시작하라. 가진 것을 사용하라. 당신이 할 수 있는 것을 하라","Start where you are. Use what you have. Do what you can"),
     ("열정없이 세계적으로 위대한 일을 이룬 성취는 없다.","Nothing great in the world has ever been accomplished without passion.")
 
 ]
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def mark_incorrect_parts(user_input, correct_answer):
-    # 마침표, 쉼표, 물음표 제거 + 소문자 변환
-    import re
     def clean_text(text):
         return re.sub(r"[.,?!]", "", text).lower()
 
@@ -87,34 +91,57 @@ def mark_incorrect_parts(user_input, correct_answer):
         elif i < len(user_words):
             marked.append(user_words[i] + "❌")
         else:
-            # 사용자가 입력하지 않은 단어는 표시하지 않음
             pass
 
     return ' '.join(marked)
 
+def format_time(seconds):
+    minutes = seconds // 60
+    seconds = seconds % 60
+    return f"{minutes}분 {seconds}초"
+
 def run_quiz():
     print("문제를 한글로 보고, 정확한 영어 문장을 입력하세요.")
-    print("정답을 맞혀야 다음 문제로 넘어갑니다.\n")
+  print("정답을 맞혀야 다음 문제로 넘어갑니다.\n")
 
-    for i, (question, answer) in enumerate(quiz, 1):
-        while True:
-            print(f"문제 {i}: {question}")
-            user_input = input("👉 영어로 입력하세요: ").strip()
+  total = len(quiz)
+  start_time = time.time()
 
-            # 단순 비교용 문자열 (마침표/쉼표 제거, 소문자)
-            normalized_input = user_input.lower().replace(",", "").replace(".", "").replace("?", "")
-            normalized_answer = answer.lower().replace(",", "").replace(".", "").replace("?", "")
+  for i, (question, answer) in enumerate(quiz, 1):
+      while True:
+          print(f"문제 {i}: {question}")
+          user_input = input("👉 영어로 입력하세요: ").strip()
 
-            if normalized_input == normalized_answer:
-                print("✅ 정답입니다!\n")
-                break
-            else:
-                print("❌ 오답입니다. 다시 시도해보세요.\n")
-                print("정답: " + answer)
-                print("입력: " + mark_incorrect_parts(user_input, answer))  # 틀린 부분 표시
-                print()
+          normalized_input = user_input.lower().replace(",", "").replace(".", "").replace("?", "")
+          normalized_answer = answer.lower().replace(",", "").replace(".", "").replace("?", "")
 
+          if normalized_input == normalized_answer:
+              print("✅ 정답입니다!\n")
+              break
+          else:
+              print("❌ 오답입니다. 다시 시도해보세요.\n")
+              print("정답: " + answer)
+              print("입력: " + mark_incorrect_parts(user_input, answer))
+              input("\n🔁 Enter를 누르면 다시 시도합니다...")
+              clear_screen()
+
+      # 시간 및 진행률 정보 출력
+      elapsed = int(time.time() - start_time)
+      average_time = elapsed / i
+      remaining = total - i
+      estimated_remaining = int(average_time * remaining)
+
+      progress_percent = int((i / total) * 100)
+      print(f"📊 진행률: {i} / {total} ({progress_percent}%)")
+      print(f"⏱ 경과 시간: {format_time(elapsed)}")
+      if remaining > 0:
+          print(f"⏳ 예상 남은 시간: {format_time(estimated_remaining)}\n")
+      else:
+          print()
+    
     print("🎉 모든 문제를 맞혔습니다! 수고하셨습니다!")
+    total_time = int(time.time() - start_time)
+    print(f"🕒 총 소요 시간: {format_time(total_time)}")
 
 if __name__ == "__main__":
     run_quiz()
